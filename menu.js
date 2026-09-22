@@ -54,11 +54,12 @@ function renderMenu(){
   const box=$("menu"); if(!box) return;
   const per=person(); const e=eatenOf(todayName());
   const pct=function(n,g){return Math.round((Number(n||0)/Math.max(g,1))*100)};
-  const rings='<div class="card span"><div class="title">Сегодня · '+todayName()+' · '+(state.who==="wife"?"Жена":"Я")+'</div><div class="rings rings4">'+
+  const hero=window.MENU_HERO?'<img class="menu-hero" src="'+window.MENU_HERO+'" alt="">':'';
+  const rings='<div class="card span"><div class="title">Сегодня · '+todayName()+' · '+(state.who==="wife"?"Жена":"Я")+'</div><div class="menu-kbju">'+hero+'<div class="rings rings4">'+
     '<div class="ring-wrap">'+ringSvg(pct(e.k,per.kcal),"#f0b429")+'<b>'+pct(e.k,per.kcal)+'%</b><span>Ккал '+Math.round(e.k)+'/'+per.kcal+'</span></div>'+
     '<div class="ring-wrap">'+ringSvg(pct(e.p,per.p),"#3dcc7a")+'<b>'+pct(e.p,per.p)+'%</b><span>Белок '+Math.round(e.p)+'/'+per.p+'</span></div>'+
     '<div class="ring-wrap">'+ringSvg(pct(e.f,per.f),"#f07a3a")+'<b>'+pct(e.f,per.f)+'%</b><span>Жиры '+Math.round(e.f)+'/'+per.f+'</span></div>'+
-    '<div class="ring-wrap">'+ringSvg(pct(e.c,per.c),"#6b7cff")+'<b>'+pct(e.c,per.c)+'%</b><span>Углеводы '+Math.round(e.c)+'/'+per.c+'</span></div></div></div>';
+    '<div class="ring-wrap">'+ringSvg(pct(e.c,per.c),"#6b7cff")+'<b>'+pct(e.c,per.c)+'%</b><span>Углеводы '+Math.round(e.c)+'/'+per.c+'</span></div></div></div></div>';
   const days=ORDER.map(function(d){
     const list=(DOMA.meals||[]).map(function(m,i){return {m:m,i:i}}).filter(function(x){return x.m.d===d});
     const extra=(state.customMeals||[]).filter(function(m){return m.d===d&&(!m.own||m.own==="shared"||m.own===state.who)});
