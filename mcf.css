@@ -4,5 +4,5 @@
 .mcf-days{font-size:28px;font-weight:800;letter-spacing:-.04em;margin:6px 0 10px;line-height:1}
 .mcf-bar{height:8px;border-radius:99px;background:#2a2d33;overflow:hidden}
 .mcf-bar i{display:block;height:100%;border-radius:99px}
-.mcf-pic{width:42%;max-width:168px;min-width:118px;border-radius:16px;background:#0e1014 url("./mcfriday.jpg") center 42%/cover no-repeat}
-@media(min-width:900px){.mcf{max-width:none}.mcf-pic{width:220px;max-width:220px}}
+img.mcf-pic{width:42%;max-width:168px;min-width:118px;height:108px;object-fit:cover;object-position:center 40%;border-radius:16px;background:#0e1014}
+@media(min-width:900px){.mcf{max-width:none}img.mcf-pic{width:220px;max-width:220px;height:140px}}
