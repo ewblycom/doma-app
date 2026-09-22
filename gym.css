@@ -1,0 +1,13 @@
+.wk-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+.wk-day {
+  border:0; background:#f5f5f7; border-radius:11px; padding:8px 2px 10px;
+  font-family: inherit; color:#1d1d1f; position:relative;
+}
+.wk-day s { display:block; font-size:11px; color:#6e6e73; text-decoration:none; font-weight:400; }
+.wk-day b { display:block; font-size:17px; font-weight:600; margin-top:2px; }
+.wk-day.on { background:#0071e3; color:#fff; }
+.wk-day.on s { color:rgba(255,255,255,.8); }
+.wk-dot { width:5px; height:5px; border-radius:99px; background:#34c759; display:block; margin:6px auto 0; }
+.wk-day.on .wk-dot { background:#fff; }
+#gym .ex { display:grid; grid-template-columns:28px 1fr 72px 34px; align-items:center; gap:8px; }
+.ex-w { width:72px; border:0; background:#f5f5f7; border-radius:8px; padding:8px 6px; font:inherit; text-align:center; }
