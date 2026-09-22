@@ -1,21 +1,20 @@
 window.DOMA=window.DOMA||{};
-DOMA.prices={week:"23–29.09.2026",note:"Акции Tesco/Albert 23–29.09.2026",list:[{n:"Куриное филе",u:"кг",p:99.9,s:"Tesco"},{n:"Яйца M 10",u:"уп",p:29.9,s:"Albert"},{n:"Творог 250 г",u:"шт",p:18.9,s:"Tesco"},{n:"Молоко 1 л",u:"л",p:17.9,s:"Tesco"},{n:"Йогурт 0%",u:"шт",p:14.9,s:"Tesco"},{n:"Овсянка 500 г",u:"шт",p:19.9,s:"Tesco"},{n:"Рис 1 кг",u:"шт",p:33.9,s:"Tesco"},{n:"Чечевица 500 г",u:"шт",p:34.9,s:"Tesco"},{n:"Паста 500 г",u:"шт",p:19.9,s:"Tesco"},{n:"Картофель",u:"кг",p:19.9,s:"Tesco"},{n:"Бананы",u:"кг",p:19.9,s:"Albert"},{n:"Лосось",u:"кг",p:329,s:"Albert 32,90/100г"},{n:"Тунец",u:"шт",p:39.9,s:"Tesco"},{n:"Брокколи",u:"шт",p:34.9,s:"Tesco"},{n:"Цукини",u:"кг",p:39.9,s:"Albert"}]};
-DOMA.catalog=[
-{id:"b1",slot:"Завтрак",title:"Овсянка с творогом и бананом",src:"food.ru/117478",cost:28,me:"тарелка 450 г: овсянка 70 г, молоко 250 мл, творог 100 г, банан 100 г",we:"тарелка 380 г: овсянка 50 г, молоко 200 мл, творог 100 г, банан 80 г",mk:575,mp:36,mf:14,mc:82,wk:465,wp:32,wf:12,wc:64,rec:"С вечера хлопья с молоком. Утром творог и банан."},
-{id:"b2",slot:"Завтрак",title:"Яичница, тост и йогурт",src:"russianfood.com",cost:32,me:"2–3 яйца, хлеб 60 г, йогурт 150 г, яблоко 150 г",we:"2 яйца, хлеб 45 г, йогурт 150 г, яблоко 120 г",mk:520,mp:40,mf:18,mc:57,wk:405,wp:30,wf:12,wc:48,rec:"Сковорода 3 г масла, яйца, тост. Йогурт и яблоко рядом."},
-{id:"b3",slot:"Завтрак",title:"Омлет с сыром и овощами",src:"food.ru",cost:30,me:"яйца 3, сыр 20 г, перец 80 г, йогурт 150 г",we:"яйца 2, сыр 15 г, овощи 80 г, йогурт 150 г",mk:430,mp:38,mf:24,mc:12,wk:340,wp:29,wf:16,wc:12,rec:"Овощи 2 мин, яйца, сыр, крышка 1 мин."},
-{id:"b9",slot:"Завтрак",title:"Овсянка ночная",src:"food.ru",cost:24,me:"овсянка 60 г, йогурт 150 г, молоко 50 мл, банан 80 г",we:"овсянка 45 г, йогурт 140 г, банан 60 г",mk:420,mp:24,mf:8,mc:62,wk:340,wp:20,wf:6,wc:50,rec:"Банка на ночь. Утром не греть."},
-{id:"l1",slot:"Обед",title:"Куриный боул",src:"food.ru",cost:55,me:"филе 180 г, рис 70 г, микс 120 г, огурец 80 г",we:"филе 170 г, рис 50 г, микс 100 г",mk:555,mp:50,mf:11,mc:62,wk:450,wp:45,wf:8,wc:46,rec:"Филе 200C 22 мин. Рис 1:2 вода 12 мин. Овощи рядом."},
-{id:"l2",slot:"Обед",title:"Чечевичный суп и тунец",src:"food.ru",cost:38,me:"чечевица 70 г, тунец 80 г, хлеб 35 г",we:"чечевица 50 г, тунец 80 г, хлеб 30 г",mk:520,mp:46,mf:5,mc:68,wk:415,wp:39,wf:4,wc:52,rec:"Лук морковь, чечевица 20 мин. Тунец на хлеб."},
-{id:"l3",slot:"Обед",title:"Паста с курицей",src:"food.ru",cost:42,me:"паста 80 г, филе 160 г, томат 100 г, сыр 15 г",we:"паста 60 г, филе 150 г",mk:590,mp:48,mf:10,mc:72,wk:475,wp:43,wf:7,wc:55,rec:"Паста al dente. Филе и томат 8 мин."},
-{id:"l8",slot:"Обед",title:"Тунец, рис, огурец",src:"food.ru",cost:34,me:"рис 80 г, тунец 100 г, огурец 100 г",we:"рис 60 г, тунец 80 г",mk:480,mp:36,mf:6,mc:70,wk:380,wp:30,wf:5,wc:52,rec:"Рис сварить. Тунец сверху."},
-{id:"d1",slot:"Ужин",title:"Бёдра, картофель, брокколи",src:"food.ru",cost:48,me:"бедро 200 г, картофель 220 г, брокколи 150 г",we:"бедро 150 г, картофель 160 г, брокколи 150 г",mk:610,mp:47,mf:26,mc:49,wk:470,wp:36,wf:19,wc:38,rec:"200C 30 мин, брокколи последние 12."},
-{id:"d2",slot:"Ужин",title:"Лосось и салат",src:"food.ru",cost:68,me:"лосось 140 г, салат 150 г, огурец 80 г",we:"лосось 110 г, салат 150 г",mk:420,mp:34,mf:22,mc:8,wk:340,wp:28,wf:18,wc:8,rec:"Лосось 12 мин 200C. Салат свежий."},
-{id:"d3",slot:"Ужин",title:"Фарш с цукини",src:"food.ru",cost:36,me:"фарш 160 г, цукини 220 г, томат 80 г",we:"фарш 140 г, цукини 200 г",mk:480,mp:30,mf:24,mc:16,wk:410,wp:26,wf:20,wc:14,rec:"Цукини, фарш, томат 15 мин."},
-{id:"d4",slot:"Ужин",title:"Омлет-ужин с творогом",src:"food.ru",cost:24,me:"яйца 3, овощи 150 г, творог 100 г, хлеб 30 г",we:"яйца 2, овощи 150 г, творог 80 г",mk:470,mp:42,mf:22,mc:22,wk:355,wp:31,wf:15,wc:19,rec:"Овощи, яйца, творог сверху."},
-{id:"d15",slot:"Ужин",title:"Макпятница McMenu",src:"mcdonalds.cz / Wolt",cost:180,me:"McMenu среднее, напиток zero",we:"McMenu среднее",mk:720,mp:28,mf:28,mc:78,wk:620,wp:24,wf:24,wc:68,rec:"Дома не готовим. Wolt или касса. Раз в неделю."}
-];
-(function(){const pick=id=>DOMA.catalog.find(x=>x.id===id);const pair={"Понедельник":{b:"b1",l:"l1",d:"d1"},"Вторник":{b:"b1",l:"l1",d:"d1"},"Среда":{b:"b2",l:"l2",d:"d3"},"Четверг":{b:"b2",l:"l2",d:"d3"},"Пятница":{b:"b9",l:"l3",d:"d15"},"Суббота":{b:"b9",l:"l3",d:"d2"},"Воскресенье":{b:"b3",l:"l8",d:"d4"}};const out=[];Object.keys(pair).forEach(day=>{const p=pair[day];["b","l","d"].forEach(k=>{const c=pick(p[k]);if(!c)return;out.push({d:day,m:c.slot,title:c.title,me:c.me,we:c.we,mk:c.mk,mp:c.mp,mf:c.mf,mc:c.mc,wk:c.wk,wp:c.wp,wf:c.wf,wc:c.wc,how:c.rec,src:c.src,cost:c.cost,block:"2 дня",id:c.id});});});DOMA.meals=out;DOMA.week="23–29.09.2026 · филе 99,90 Tesco, яйца 29,90 Albert";DOMA.mcfriday=true;})();
-function daysToMcFriday(){const d=new Date().getDay();return d===5?0:(5-d+7)%7}
-function mcFridayLabel(){const n=daysToMcFriday();if(n===0)return "Сегодня Макпятница";return "До Макпятницы осталось "+n+" "+(n===1?"день":n<5?"дня":"дней")}
-setTimeout(function(){const el=document.getElementById("modePill");if(el)el.textContent=mcFridayLabel();},0);
+DOMA.catalog=[].concat(DOMA.catB||[],DOMA.catL||[],DOMA.catD||[]);
+function plateOf(ings,g){ return (ings||[]).map(function(x){return x.n+" "+x.g+" г"}).join(", ")+" · тарелка "+g+" г"; }
+(function applyWeek(){
+  const pick=function(id){ return (DOMA.catalog||[]).find(function(x){return x.id===id}); };
+  const pair={"Понедельник":{b:"b01",l:"l01",d:"d01"},"Вторник":{b:"b01",l:"l01",d:"d01"},"Среда":{b:"b02",l:"l02",d:"d03"},"Четверг":{b:"b02",l:"l02",d:"d03"},"Пятница":{b:"b09",l:"l03",d:"d15"},"Суббота":{b:"b09",l:"l03",d:"d02"},"Воскресенье":{b:"b03",l:"l08",d:"d04"}};
+  const out=[];
+  Object.keys(pair).forEach(function(day){
+    const p=pair[day];
+    ["b","l","d"].forEach(function(k){
+      const c=pick(p[k]); if(!c) return;
+      out.push({d:day,m:c.slot,title:c.title,id:c.id,me:plateOf(c.ingsM,c.gM),we:plateOf(c.ingsW,c.gW),mk:c.mk,mp:c.mp,mf:c.mf,mc:c.mc,wk:c.wk,wp:c.wp,wf:c.wf,wc:c.wc,how:c.cook,cost:c.cost,block:"2 дня",ingsM:c.ingsM,ingsW:c.ingsW,gM:c.gM,gW:c.gW});
+    });
+  });
+  if(out.length) DOMA.meals=out;
+  DOMA.week="23–29.09.2026 · КБЖУ по граммам";
+})();
+function daysToMcFriday(){ const d=new Date().getDay(); return d===5?0:(5-d+7)%7; }
+function mcFridayLabel(){ const n=daysToMcFriday(); if(n===0) return "Сегодня Макпятница"; return "До Макпятницы осталось "+n+" "+(n===1?"день":n<5?"дня":"дней"); }
+setTimeout(function(){ const el=document.getElementById("modePill"); if(el) el.textContent=mcFridayLabel(); },0);
