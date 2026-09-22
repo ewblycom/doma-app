@@ -4,63 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Дома">
-  <meta name="theme-color" content="#F4F0EA">
-  <title>Дома — меню и зал</title>
+  <meta name="theme-color" content="#F3F4F7">
+  <title>Дома</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" href="./icons/icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=4">
+  <link rel="stylesheet" href="./styles.css?v=5">
 </head>
 <body>
-  <aside class="rail" aria-label="Навигация">
-    <div class="rail-logo">Д</div>
-    <nav class="rail-nav">
-      <button data-page="home" class="on" onclick="go('home')" title="Сегодня"></button>
-      <button data-page="menu" onclick="go('menu')" title="Меню"></button>
-      <button data-page="shop" onclick="go('shop')" title="Закупки"></button>
-      <button data-page="gym" onclick="go('gym')" title="Зал"></button>
-      <button data-page="more" onclick="go('more')" title="Ещё"></button>
-    </nav>
-    <button class="rail-user" id="railUser" onclick="setWho(state.who==='me'?'wife':'me')" title="Сменить человека"></button>
-  </aside>
-  <div class="board">
-    <header class="top">
-      <div class="hello">
-        <h1 id="helloTitle">Привет</h1>
-        <p class="sub" id="helloSub">Неделя 23–29.09.2026</p>
-      </div>
-      <div class="who" id="whoBar">
-        <button data-who="me" class="on" onclick="setWho('me')">Я</button>
-        <button data-who="wife" onclick="setWho('wife')">Жена</button>
-      </div>
-      <div class="tools"><div class="tool-chip" id="clockChip">—</div></div>
+  <div class="app">
+    <header class="head">
+      <div class="sync" id="syncChip">Локальные данные</div>
+      <button class="who-pill" id="whoPill" onclick="cycleWho()">Я</button>
     </header>
-    <main class="wrap">
+    <h1 class="date-title" id="dateTitle">Сегодня</h1>
+    <div class="row-pills">
+      <button class="pill" id="modePill">Питание</button>
+      <div class="pill muted" id="clockChip">Prague</div>
+    </div>
+    <main>
       <section id="home" class="page on"></section>
       <section id="menu" class="page"></section>
       <section id="shop" class="page"></section>
       <section id="gym" class="page"></section>
-      <section id="more" class="page"></section>
+      <section id="mail" class="page"></section>
     </main>
   </div>
-  <div class="sheet" id="sheet" hidden>
-    <div class="sheet-card">
-      <div class="sheet-head">
-        <b id="sheetTitle">Редактор</b>
-        <button class="icon-btn" onclick="closeSheet()">✕</button>
-      </div>
-      <div id="sheetBody"></div>
+  <nav class="tabbar">
+    <div class="tab-pill">
+      <button data-page="home" class="on" onclick="go('home')"><span class="ico" data-ic="home"></span>Главная</button>
+      <button data-page="menu" onclick="go('menu')"><span class="ico" data-ic="book"></span>Меню</button>
+      <button data-page="gym" onclick="go('gym')"><span class="ico" data-ic="run"></span>Зал</button>
+      <button data-page="mail" onclick="go('mail')"><span class="ico" data-ic="mail"></span>Почта</button>
     </div>
-  </div>
-  <nav class="dock">
-    <button data-page="home" class="on" onclick="go('home')"><span class="ico" data-ic="home"></span>Сегодня</button>
-    <button data-page="menu" onclick="go('menu')"><span class="ico" data-ic="menu"></span>Меню</button>
-    <button data-page="shop" onclick="go('shop')"><span class="ico" data-ic="shop"></span>Закупки</button>
-    <button data-page="gym" onclick="go('gym')"><span class="ico" data-ic="gym"></span>Зал</button>
-    <button data-page="more" onclick="go('more')"><span class="ico" data-ic="more"></span>Ещё</button>
+    <button class="fab" onclick="go('shop')" title="Закупки">+</button>
   </nav>
-  <script src="./data.js?v=4"></script>
-  <script src="./app.js?v=4"></script>
+  <script src="./data.js?v=5"></script>
+  <script src="./app.js?v=5"></script>
 </body>
 </html>
