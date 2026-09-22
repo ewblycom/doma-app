@@ -8,12 +8,12 @@
   <meta name="theme-color" content="#F3F4F7">
   <title>Дома</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" href="./styles.css?v=8">
+  <link rel="stylesheet" href="./styles.css?v=9">
 </head>
 <body>
   <div class="app">
     <header class="head">
-      <div class="sync" id="syncChip">Сборка 8 · десктоп</div>
+      <div class="sync" id="syncChip">Сборка 9 · финансы</div>
       <button class="who-pill" id="whoPill" onclick="cycleWho()">Я</button>
     </header>
     <h1 class="date-title" id="dateTitle">Сегодня</h1>
@@ -27,6 +27,7 @@
       <section id="shop" class="page"></section>
       <section id="gym" class="page"></section>
       <section id="mail" class="page"></section>
+      <section id="fin" class="page"></section>
     </main>
   </div>
   <nav class="tabbar">
@@ -34,7 +35,7 @@
       <button data-page="home" class="on" onclick="go('home')"><span class="ico" data-ic="home"></span>Главная</button>
       <button data-page="menu" onclick="go('menu')"><span class="ico" data-ic="book"></span>Меню</button>
       <button data-page="gym" onclick="go('gym')"><span class="ico" data-ic="run"></span>Зал</button>
-      <button data-page="mail" onclick="go('mail')"><span class="ico" data-ic="mail"></span>Почта</button>
+      <button data-page="fin" onclick="go('fin')"><span class="ico" data-ic="cash"></span>Деньги</button>
     </div>
     <button class="fab" onclick="go('shop')" title="Закупки">+</button>
   </nav>
@@ -44,7 +45,7 @@
       <div id="sheetBody"></div>
     </div>
   </div>
-  <script src="./data.js?v=8"></script>
-  <script src="./app.js?v=8"></script>
+  <script src="./data.js?v=9"></script>
+  <script src="./app.js?v=9"></script>
 </body>
 </html>
