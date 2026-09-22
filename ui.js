@@ -1,3 +1,8 @@
+const PAGE_TITLES={home:"Главная",menu:"Меню",gym:"Зал",fin:"Деньги",shop:"Закупки",mail:"Почта"};
+function setPageTitle(page){
+  const el=document.getElementById("pageTitle");
+  if(el) el.textContent=PAGE_TITLES[page]||"Дома";
+}
 function polishHome(){
   const dt=document.getElementById("dateTitle"); if(dt) dt.style.display="none";
   const row=document.querySelector(".row-pills"); if(row) row.style.display="none";
@@ -12,10 +17,16 @@ function polishHome(){
   });
 }
 (function(){
-  const prev=typeof renderHome==="function"?renderHome:null;
+  const prevGo=typeof go==="function"?go:null;
+  window.go=function(page){
+    if(prevGo) prevGo(page);
+    setPageTitle(page);
+  };
+  const prevHome=typeof renderHome==="function"?renderHome:null;
   renderHome=function(){
-    if(prev) prev();
+    if(prevHome) prevHome();
     polishHome();
   };
+  setPageTitle("home");
   polishHome();
 })();
