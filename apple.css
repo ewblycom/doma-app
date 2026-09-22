@@ -1,57 +1,33 @@
 :root {
-  --bg: #f5f5f7;
+  --bg: #f5f5f7 !important;
   --card: #ffffff;
   --pearl: #fafafc;
   --ink: #1d1d1f;
-  --muted: #7a7a7a;
-  --line: #e0e0e0;
-  --line-soft: #f0f0f0;
+  --muted: #6e6e73;
+  --line: #d2d2d7;
   --green: #34c759;
-  --green-soft: #e8f8ee;
   --amber: #ff9f0a;
   --orange: #ff9f0a;
   --blue: #0071e3;
   --chip: #d2d2d7;
 }
 body {
-  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  letter-spacing: -0.22px;
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif !important;
+  background: #f5f5f7 !important;
+  color: #1d1d1f !important;
 }
 .sync {
-  background: var(--pearl);
-  color: var(--ink);
-  border-radius: 11px;
-  font-size: 14px;
-  font-weight: 600;
+  background: #1d1d1f !important;
+  color: #fff !important;
+  border-radius: 11px !important;
+  font-weight: 600 !important;
 }
 .who-pill {
-  width: 36px;
-  height: 36px;
-  background: var(--chip);
-  color: var(--ink);
-  font-weight: 600;
+  background: #d2d2d7 !important;
+  color: #1d1d1f !important;
 }
-.card { border-radius: 18px; padding: 20px; }
-.card .title { font-size: 21px; font-weight: 600; letter-spacing: 0.02em; }
-.field button, .row-btns .on, .cal-day.on { background: var(--blue); color: #fff; }
-.field button { border-radius: 999px; font-weight: 400; padding: 11px 22px; }
-.tab-pill {
-  background: rgba(255,255,255,.82);
-  backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: none;
-  border: 1px solid var(--line-soft);
-}
-.tab-pill button { font-size: 12px; font-weight: 400; }
-.tab-pill button.on { background: var(--pearl); color: var(--ink); font-weight: 600; }
-.fab {
-  width: 44px; height: 44px;
-  background: var(--chip); color: var(--ink);
-  box-shadow: none; font-weight: 400;
-}
-.sheet-card { background: var(--bg); border-radius: 18px 18px 0 0; }
-@media (min-width: 900px) {
-  body { background: #f5f5f7; }
-  #home.on > .mcf { grid-column: 1 / -1; }
-}
+.card { border-radius: 18px !important; }
+.cal-day.on { background: #0071e3 !important; color: #fff !important; }
+.field button, .row-btns .on { background: #0071e3 !important; color: #fff !important; border-radius: 980px !important; }
+.tab-pill { box-shadow: none !important; background: rgba(255,255,255,.8) !important; }
+.fab { background: #d2d2d7 !important; box-shadow: none !important; }
