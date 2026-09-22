@@ -4,15 +4,11 @@
   --pearl: #fafafc;
   --ink: #1d1d1f;
   --muted: #6e6e73;
-  --muted-80: #333336;
   --line: #d2d2d7;
-  --line-soft: #e8e8ed;
   --green: #34c759;
-  --green-soft: #e8f8ee;
   --amber: #ff9f0a;
   --orange: #ff9f0a;
   --blue: #0071e3;
-  --blue-press: #0066cc;
   --chip: #d2d2d7;
   --font-text: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   --font-display: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
@@ -26,13 +22,18 @@ body {
   color: #1d1d1f !important;
   -webkit-font-smoothing: antialiased;
 }
-.sync {
-  background: #1d1d1f !important;
-  color: #fff !important;
-  border-radius: 11px !important;
-  font-family: var(--font-text) !important;
-  font-size: 14px !important;
+.sync { display: none !important; }
+.page-title {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-display) !important;
+  font-size: 34px !important;
   font-weight: 600 !important;
+  letter-spacing: -0.37px !important;
+  line-height: 1.1 !important;
+  color: #1d1d1f !important;
+  background: transparent !important;
+  padding: 8px 0 4px !important;
 }
 .who-pill {
   width: 36px !important;
@@ -52,79 +53,27 @@ body {
   font-family: var(--font-text) !important;
   font-size: 12px !important;
   font-weight: 400 !important;
-  letter-spacing: -0.12px !important;
-  text-transform: none !important;
   color: #6e6e73 !important;
+  text-transform: none !important;
 }
 .card .title, .mcf-days, .tile .num, .date-title, .cal-nav b, .sheet-head b {
   font-family: var(--font-display) !important;
   font-weight: 600 !important;
-  letter-spacing: -0.28px !important;
   color: #1d1d1f !important;
 }
 .card .title { font-size: 21px !important; }
-.mcf-days { font-size: 28px !important; line-height: 1.07 !important; }
-.tile .num { font-size: 28px !important; font-weight: 600 !important; }
-.coach, .meal b, .mail-row b, .ex b, .fin-row b, .shop-item b {
-  font-family: var(--font-text) !important;
-  font-size: 17px !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.374px !important;
-}
-.hint, .meal small, .mail-row small, .ex span, .shop-item small, .fin-row small, .macros i {
-  font-family: var(--font-text) !important;
-  font-weight: 400 !important;
-  color: #6e6e73 !important;
-}
-.macros i { background: #f5f5f7 !important; border-radius: 8px !important; }
-.kcal { font-family: var(--font-text) !important; color: #1d1d1f !important; font-weight: 600 !important; }
-.pill, .prio, .meter { font-family: var(--font-text) !important; border-radius: 11px !important; box-shadow: none !important; }
-.field input, .fl input, .fl select, .field button, .row-btns button, .icon-btn {
-  font-family: var(--font-text) !important;
-  border-radius: 11px !important;
-}
-.field input, .fl input, .fl select { background: #f5f5f7 !important; color: #1d1d1f !important; }
-.field button, .row-btns .on {
-  background: #0071e3 !important;
-  color: #fff !important;
-  border-radius: 980px !important;
-  font-weight: 400 !important;
-}
-.row-btns button { background: #fff !important; color: #0071e3 !important; }
-.cal-day { font-family: var(--font-text) !important; font-size: 17px !important; font-weight: 400 !important; }
-.cal-day.on { background: #0071e3 !important; color: #fff !important; font-weight: 600 !important; }
-.cal-grid .wd { font-family: var(--font-text) !important; font-weight: 400 !important; color: #6e6e73 !important; }
+.mcf-days { font-size: 28px !important; }
+.field button, .row-btns .on { background: #0071e3 !important; color: #fff !important; border-radius: 980px !important; }
+.cal-day.on { background: #0071e3 !important; color: #fff !important; }
 .tab-pill {
   background: rgba(255,255,255,.78) !important;
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
   box-shadow: none !important;
-  border: 0.5px solid rgba(0,0,0,.08) !important;
 }
-.tab-pill button {
-  font-family: var(--font-text) !important;
-  font-size: 10px !important;
-  font-weight: 400 !important;
-  color: #6e6e73 !important;
-}
+.tab-pill button { font-family: var(--font-text) !important; color: #6e6e73 !important; font-weight: 400 !important; }
 .tab-pill button.on { background: #f5f5f7 !important; color: #1d1d1f !important; font-weight: 600 !important; }
-.fab {
-  width: 44px !important;
-  height: 44px !important;
-  background: #d2d2d7 !important;
-  color: #1d1d1f !important;
-  box-shadow: none !important;
-  font-family: var(--font-text) !important;
-}
-.amt.in, .st.ok { color: #34c759 !important; font-weight: 600 !important; }
-.amt.out, .st.warn { color: #ff9f0a !important; font-weight: 600 !important; }
-.barline, .mcf-bar, .meter .seg b { background: #e8e8ed !important; }
-.barline i, .meter .seg b.on { background: #ff9f0a !important; }
-.barline i.over { background: #ff3b30 !important; }
-.sheet { background: rgba(0,0,0,.32) !important; }
-.sheet-card { background: #f5f5f7 !important; }
-.danger { background: #ff3b30 !important; color: #fff !important; }
-.meal, .mail-row, .ex, .shop-item, .fin-row { border-bottom-color: #e8e8ed !important; }
+.fab { background: #d2d2d7 !important; box-shadow: none !important; color: #1d1d1f !important; }
+.amt.in, .st.ok { color: #34c759 !important; }
+.amt.out, .st.warn { color: #ff9f0a !important; }
 @media (min-width: 900px) {
   body { background: #f5f5f7 !important; }
   #home.on > .mcf { grid-column: 1 / -1; }
