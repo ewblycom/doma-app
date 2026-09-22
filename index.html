@@ -75,5 +75,31 @@
   <script src="./habits.js?v=31"></script>
   <script src="./home.js?v=31"></script>
   <script src="./pages.js?v=31"></script>
+  <script>
+    (function(){
+      function show(page){
+        document.querySelectorAll(".page").forEach(function(p){
+          var on=p.id===page;
+          p.classList.toggle("on", on);
+          p.hidden=!on;
+          p.style.setProperty("display", on?((page==="home"||page==="gym")?"flex":"block"):"none", "important");
+        });
+        document.querySelectorAll(".tab-pill button").forEach(function(b){
+          b.classList.toggle("on", b.dataset.page===page);
+        });
+        var title=document.getElementById("pageTitle");
+        var names={home:"Главная",menu:"Меню",gym:"Зал",fin:"Деньги",shop:"Закупки",mail:"Почта"};
+        if(title) title.textContent=names[page]||"Дома";
+        window.scrollTo(0,0);
+      }
+      window.go=show;
+      document.querySelectorAll(".page").forEach(function(p){
+        if(!p.classList.contains("on")){
+          p.hidden=true;
+          p.style.setProperty("display","none","important");
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
