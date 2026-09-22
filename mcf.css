@@ -1,0 +1,8 @@
+.mcf{display:flex;align-items:stretch;gap:12px;background:#16181d;color:#fff;border-radius:24px;padding:12px;margin-bottom:12px;overflow:hidden}
+.mcf-left{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;padding:4px 4px 2px}
+.mcf-kicker{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#cfcfd4;line-height:1.25}
+.mcf-days{font-size:28px;font-weight:800;letter-spacing:-.04em;margin:6px 0 10px;line-height:1}
+.mcf-bar{height:8px;border-radius:99px;background:#2a2d33;overflow:hidden}
+.mcf-bar i{display:block;height:100%;border-radius:99px}
+.mcf-pic{width:42%;max-width:168px;min-width:118px;border-radius:16px;background:#0e1014 url("./mcfriday.jpg") center 42%/cover no-repeat}
+@media(min-width:900px){.mcf{max-width:none}.mcf-pic{width:220px;max-width:220px}}
