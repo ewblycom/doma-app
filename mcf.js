@@ -1,8 +1,8 @@
 function mcfColor(n){
   const t=1-Math.max(0,Math.min(6,n))/6;
-  const r=Math.round(226+(61-226)*t);
-  const g=Math.round(75+(204-75)*t);
-  const b=Math.round(75+(122-75)*t);
+  const r=Math.round(240+(61-240)*t);
+  const g=Math.round(180+(204-180)*t);
+  const b=Math.round(41+(122-41)*t);
   return "rgb("+r+","+g+","+b+")";
 }
 function mcfBanner(){
