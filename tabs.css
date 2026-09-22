@@ -1,0 +1,10 @@
+.page { display: none !important; }
+.page.on { display: block !important; }
+#home.page.on { display: flex !important; flex-direction: column; gap: 24px; }
+#gym.page.on { display: flex !important; flex-direction: column; gap: 17px; }
+#home:not(.on),
+#menu:not(.on),
+#gym:not(.on),
+#fin:not(.on),
+#shop:not(.on),
+#mail:not(.on) { display: none !important; height: 0 !important; overflow: hidden !important; }
