@@ -1,13 +1,11 @@
 {
   "name": "Дома — меню и зал",
   "short_name": "Дома",
-  "start_url": "./",
+  "start_url": "./?v=4",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#1B2A4A",
-  "theme_color": "#1B2A4A",
+  "background_color": "#F4F0EA",
+  "theme_color": "#F4F0EA",
   "lang": "ru",
-  "icons": [
-    { "src": "icons/icon.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any" }
-  ]
+  "icons": [{ "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }
