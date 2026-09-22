@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Дома">
+  <meta name="theme-color" content="#1B2A4A">
+  <title>Дома — меню и зал</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Дома</h1>
+    <div class="sub">Неделя 23–29.09.2026 · меню, закупки, зал</div>
+    <div class="who">
+      <button data-who="me" class="on" onclick="setWho('me')">Я · порции</button>
+      <button data-who="wife" onclick="setWho('wife')">Жена · порции</button>
+    </div>
+  </header>
+  <main class="wrap">
+    <section id="home" class="page on"></section>
+    <section id="menu" class="page"></section>
+    <section id="shop" class="page"></section>
+    <section id="gym" class="page"></section>
+    <section id="more" class="page"></section>
+  </main>
+  <nav class="nav">
+    <button data-page="home" class="on" onclick="go('home')"><span class="ico">●</span>Сегодня</button>
+    <button data-page="menu" onclick="go('menu')"><span class="ico">☰</span>Меню</button>
+    <button data-page="shop" onclick="go('shop')"><span class="ico">▢</span>Закупки</button>
+    <button data-page="gym" onclick="go('gym')"><span class="ico">△</span>Зал</button>
+    <button data-page="more" onclick="go('more')"><span class="ico">…</span>Ещё</button>
+  </nav>
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
