@@ -127,66 +127,41 @@ body {
 .danger { background:#f07a3a !important; color:#fff !important; }
 .fl { display:flex; flex-direction:column; gap:4px; margin-bottom:10px; font-size:13px; font-weight:650; }
 .fl input, .fl select { border:0; border-radius:14px; padding:12px; font:inherit; background:#fff; }
-
 @media (hover:hover) and (pointer:fine) {
   .tab-pill button:hover, .pill:hover, .who-pill:hover, .fab:hover, .icon-btn:hover, .cal-day:hover {
-    filter: brightness(.97);
-    cursor: pointer;
+    filter: brightness(.97); cursor: pointer;
   }
   .meal b.tap:hover { text-decoration: underline; }
 }
-
 @media (min-width: 900px) {
   body { background: #eceef3; }
-  .app {
-    max-width: 1120px;
-    padding: 24px 28px 40px 112px;
-  }
+  .app { max-width: 1120px; padding: 24px 28px 40px 112px; }
   .head { padding-top: 8px; }
   .date-title { font-size: 36px; margin-top: 10px; }
   .card { border-radius: 24px; padding: 20px; }
   .ring-wrap svg { width: 104px; height: 104px; }
   .bars { height: 160px; }
   .bars .col i { height: 128px; }
-  .tabbar {
-    left: 18px; right: auto; top: 24px; bottom: auto;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0;
-    width: 76px;
-  }
-  .tab-pill {
-    flex-direction: column;
-    border-radius: 28px;
-    padding: 8px;
-    gap: 4px;
-  }
-  .tab-pill button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 8px;
-    font-size: 10px;
-  }
+  .tabbar { left: 18px; right: auto; top: 24px; bottom: auto; flex-direction: column; align-items: stretch; padding: 0; width: 76px; }
+  .tab-pill { flex-direction: column; border-radius: 28px; padding: 8px; gap: 4px; }
+  .tab-pill button { display: flex; flex-direction: column; align-items: center; padding: 10px 8px; font-size: 10px; }
   .fab { width: 56px; height: 56px; margin: 10px auto 0; }
   .sheet { align-items: center; justify-items: center; }
-  .sheet-card {
-    width: min(520px, 92vw);
-    border-radius: 24px;
-    max-height: 80vh;
-  }
-  #home.on {
-    display: grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 14px;
-    align-items: start;
-  }
-  #home.on > .card:first-child,
-  #home.on > .meter,
-  #home.on > .field { grid-column: 1 / -1; }
+  .sheet-card { width: min(520px, 92vw); border-radius: 24px; max-height: 80vh; }
+  #home.on { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; align-items: start; }
+  #home.on > .card:first-child, #home.on > .meter, #home.on > .field { grid-column: 1 / -1; }
+  #fin.on { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+  #fin.on > .card.span { grid-column:1 / -1; }
 }
-
 @media (min-width: 1280px) {
   .app { max-width: 1280px; padding-left: 120px; }
   #home.on { grid-template-columns: 1.2fr .8fr; }
 }
+.fin-sum { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.fin-row { display:grid; grid-template-columns:1fr auto; gap:8px; padding:10px 0; border-bottom:1px solid var(--line); align-items:center; }
+.fin-row:last-child { border-bottom:0; }
+.amt.in { color:var(--green); font-weight:800; }
+.amt.out { color:var(--orange); font-weight:800; }
+.barline { height:8px; background:#eceef2; border-radius:99px; overflow:hidden; margin-top:6px; }
+.barline i { display:block; height:100%; background:var(--amber); }
+.barline i.over { background:var(--orange); }
