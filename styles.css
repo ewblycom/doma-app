@@ -1,0 +1,74 @@
+:root {
+  --navy: #1b2a4a;
+  --gold: #c4a35a;
+  --cream: #f7f1e3;
+  --ink: #1a1a1a;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --bg: #eef1f6;
+  --line: #e6dfd2;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100dvh;
+  padding-bottom: 88px;
+}
+.top {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--navy); color: #fff;
+  padding: 14px 16px 12px;
+  padding-top: max(14px, env(safe-area-inset-top));
+}
+.top h1 { margin: 0; font-size: 18px; font-weight: 700; }
+.top .sub { margin: 4px 0 10px; color: #e8e0d0; font-size: 12px; }
+.who { display: flex; gap: 8px; }
+.who button, .chip {
+  border: 0; border-radius: 999px; padding: 8px 14px;
+  font-size: 13px; font-weight: 600; background: #2c3d63; color: #e8e0d0;
+}
+.who button.on, .chip.on { background: var(--gold); color: var(--navy); }
+.wrap { padding: 14px 14px 0; max-width: 720px; margin: 0 auto; }
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.kpi { background: var(--card); border-radius: 14px; padding: 12px; }
+.kpi b { display: block; font-size: 20px; color: var(--navy); }
+.kpi span { font-size: 11px; color: var(--muted); }
+.card { background: var(--card); border-radius: 16px; padding: 14px; margin-bottom: 10px; }
+.card h2 { margin: 0 0 8px; font-size: 15px; color: var(--navy); }
+.meal { border-left: 4px solid var(--gold); padding-left: 10px; margin: 10px 0; }
+.meal.done { opacity: .55; }
+.meal .tag { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; }
+.meal h3 { margin: 2px 0 6px; font-size: 16px; }
+.macros { display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+.macros i { font-style: normal; background: var(--cream); padding: 3px 8px; border-radius: 999px; color: var(--navy); }
+.portion { font-size: 13px; line-height: 1.4; margin: 6px 0; }
+.how { font-size: 12px; color: var(--muted); }
+.check { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: 13px; font-weight: 600; }
+.check input { width: 18px; height: 18px; accent-color: var(--navy); }
+.shop-item { display: grid; grid-template-columns: 28px 1fr auto; gap: 8px; align-items: start; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.shop-item.got { opacity: .45; text-decoration: line-through; }
+.shop-item .sum { font-weight: 700; color: var(--navy); white-space: nowrap; }
+.shop-item small { display: block; color: var(--muted); font-size: 12px; }
+.cat { font-size: 12px; font-weight: 700; color: var(--navy); margin: 14px 0 4px; }
+.filters { display: flex; gap: 6px; overflow: auto; padding-bottom: 6px; }
+.filters button { flex: 0 0 auto; }
+.ex { padding: 10px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 28px 1fr; gap: 8px; }
+.ex b { display: block; }
+.ex span { font-size: 12px; color: var(--muted); }
+.rest { background: var(--cream); }
+.nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: #fff; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(5, 1fr); padding-bottom: env(safe-area-inset-bottom); }
+.nav button { border: 0; background: none; padding: 8px 4px 6px; font-size: 11px; color: var(--muted); font-weight: 600; }
+.nav button.on { color: var(--navy); }
+.nav .ico { display: block; font-size: 18px; line-height: 1.1; }
+.page { display: none; }
+.page.on { display: block; }
+.hint { font-size: 13px; color: var(--muted); line-height: 1.45; }
+.install { background: var(--cream); border-radius: 14px; padding: 12px; margin-bottom: 12px; font-size: 13px; }
+.install b { color: var(--navy); }
+.row { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; padding: 6px 0; }
+.progress { height: 8px; background: #ece7dc; border-radius: 99px; overflow: hidden; margin: 6px 0 12px; }
+.progress > i { display: block; height: 100%; background: var(--gold); }
+.list li { margin: 6px 0; }
