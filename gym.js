@@ -76,13 +76,14 @@
   window.renderGym=function(){
     const box=$("gym"); if(!box) return; const g=db(); const ses=g.sessions[g.sel];
     const packs=g.packs.map(p=>'<button onclick="gymAssign(\''+p.id+'\')">'+p.title+"</button>").join("");
+    const hero=window.GYM_HERO?'<img class="gym-hero" src="'+window.GYM_HERO+'" alt="">':'';
     let body;
     if(!ses){
-      body='<div class="card"><div class="title">'+g.sel+'</div><p class="hint">Выберите пакет — подгрузятся упражнения. Веса подставятся с прошлой тренировки.</p><div class="row-btns">'+packs+"</div></div>";
+      body='<div class="card"><div class="title">'+g.sel+'</div><div class="gym-pick">'+hero+'<div><p class="hint">Выберите пакет — подгрузятся упражнения.</p><div class="row-btns">'+packs+'</div></div></div></div>';
     } else {
       const n=ses.items.filter(x=>x.done).length;
       const rows=ses.items.map(it=>'<div class="ex"><input type="checkbox" '+(it.done?"checked":"")+' onchange="gymToggle(\''+it.id+'\')"><div><b>'+it.n+'</b><span>'+it.s+' × '+it.r+'</span></div><input class="ex-w" value="'+String(it.w||"").replace(/"/g,"")+'" placeholder="кг" onchange="gymWeight(\''+it.id+'\',this.value)"><button class="icon-btn" onclick="gymDelEx(\''+it.id+'\')">×</button></div>').join("");
-      body='<div class="card"><div class="title">'+ses.title+'</div><p class="hint">'+g.sel+' · '+n+' / '+ses.items.length+'</p>'+rows+'<div class="row-btns"><button onclick="gymClearDay()">Убрать пакет</button></div></div>';
+      body='<div class="card"><div class="title">'+ses.title+'</div><div class="gym-pick">'+hero+'<div><p class="hint">'+g.sel+' · '+n+' / '+ses.items.length+'</p><div class="row-btns">'+packs+'</div></div></div>'+rows+'<div class="row-btns"><button onclick="gymClearDay()">Убрать пакет</button></div></div>';
     }
     const add='<div class="card"><div class="title">Своё упражнение</div><label class="fl">Название <input id="gxName" placeholder="Жим лёжа"></label><div class="field"><input id="gxSets" placeholder="подходы" value="3"><input id="gxReps" placeholder="повт." value="15"><input id="gxW" placeholder="вес кг"></div><div class="row-btns"><button class="on" onclick="gymAddEx()">Добавить</button></div></div>';
     const hist=Object.keys(g.sessions).sort().reverse().slice(0,24).map(d=>{ const s=g.sessions[d]; const dn=(s.items||[]).filter(x=>x.done).length; const tw=(s.items||[]).filter(x=>x.w).map(x=>x.n+": "+x.w).slice(0,3).join(" · "); return '<div class="fin-row"><div><b>'+d+' · '+s.title+'</b><small>'+dn+'/'+(s.items||[]).length+(tw?" · "+tw:"")+"</small></div></div>"; }).join("")||'<p class="hint">Журнал пуст.</p>';
