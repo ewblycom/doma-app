@@ -12,11 +12,11 @@ function mcfBanner(){
   const fill=Math.round((1-n/6)*100);
   const col=mcfColor(n);
   const days=today?"сегодня":(n+" "+word);
-  return '<div class="mcf" onclick="go(\'menu\')">'+
+  return '<div class="mcf">'+
     '<div class="mcf-left"><div class="mcf-kicker">До Макпятницы осталось</div>'+
     '<div class="mcf-days" style="color:'+col+'">'+days+'</div>'+
     '<div class="mcf-bar"><i style="width:'+fill+'%;background:'+col+'"></i></div></div>'+
-    '<div class="mcf-pic" title="Макпятница"></div></div>';
+    '<img class="mcf-pic" alt="Макпятница" src="./mcfriday.jpg"></div>';
 }
 (function(){
   const prev=typeof renderHome==="function"?renderHome:null;
