@@ -8,12 +8,12 @@
   <meta name="theme-color" content="#F3F4F7">
   <title>Дома</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" href="./styles.css?v=7">
+  <link rel="stylesheet" href="./styles.css?v=8">
 </head>
 <body>
   <div class="app">
     <header class="head">
-      <div class="sync" id="syncChip">Сборка 7 · календарь</div>
+      <div class="sync" id="syncChip">Сборка 8 · десктоп</div>
       <button class="who-pill" id="whoPill" onclick="cycleWho()">Я</button>
     </header>
     <h1 class="date-title" id="dateTitle">Сегодня</h1>
@@ -36,7 +36,7 @@
       <button data-page="gym" onclick="go('gym')"><span class="ico" data-ic="run"></span>Зал</button>
       <button data-page="mail" onclick="go('mail')"><span class="ico" data-ic="mail"></span>Почта</button>
     </div>
-    <button class="fab" onclick="go('shop')">+</button>
+    <button class="fab" onclick="go('shop')" title="Закупки">+</button>
   </nav>
   <div class="sheet" id="sheet" hidden>
     <div class="sheet-card">
@@ -44,7 +44,7 @@
       <div id="sheetBody"></div>
     </div>
   </div>
-  <script src="./data.js?v=7"></script>
-  <script src="./app.js?v=7"></script>
+  <script src="./data.js?v=8"></script>
+  <script src="./app.js?v=8"></script>
 </body>
 </html>
