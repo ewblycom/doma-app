@@ -1,5 +1,5 @@
 window.MAIL_CACHE={
-  updated:"2026-09-23T00:17:00+02:00",
+  updated:"2026-09-23T06:16:00+02:00",
   mail:[
     {id:"1a0c9a60a4a4353a",subject:"Островок: отели со скидкой",from:"Островок",date:"2026-09-22",link:"https://mail.google.com/mail/u/0/#inbox/1a0c9a60a4a4353a"},
     {id:"1a0c93a6548fc7a9",subject:"Welcome to EveryFeed",from:"EveryFeed",date:"2026-09-22",link:"https://mail.google.com/mail/u/0/#inbox/1a0c93a6548fc7a9"},
