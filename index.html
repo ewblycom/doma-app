@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="./home.css?v=35">
   <link rel="stylesheet" href="./tabs.css?v=35">
   <link rel="stylesheet" href="./desktop.css?v=35">
+  <link rel="stylesheet" href="./auth.css?v=36">
 </head>
 <body>
   <div class="app">
@@ -23,11 +24,6 @@
       <h1 class="page-title" id="pageTitle">Главная</h1>
       <button class="who-pill" id="whoPill" onclick="cycleWho()">Я</button>
     </header>
-    <h1 class="date-title" id="dateTitle" hidden></h1>
-    <div class="row-pills" hidden>
-      <button class="pill" id="modePill"></button>
-      <div class="pill muted" id="clockChip"></div>
-    </div>
     <main>
       <section id="home" class="page on"></section>
       <section id="menu" class="page" hidden></section>
@@ -52,13 +48,7 @@
       <div id="sheetBody"></div>
     </div>
   </div>
-  <script>
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.getRegistrations().then(function (rs) {
-        rs.forEach(function (r) { r.unregister(); });
-      });
-    }
-  </script>
+  <script>if (navigator.serviceWorker) { navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); }); }</script>
   <script src="./data.js?v=35"></script>
   <script src="./mail-cache.js?v=35"></script>
   <script src="./catalog.js?v=35"></script>
@@ -85,22 +75,15 @@
           p.hidden=!on;
           p.style.setProperty("display", on?((page==="home"||page==="gym")?"flex":"block"):"none", "important");
         });
-        document.querySelectorAll(".tab-pill button").forEach(function(b){
-          b.classList.toggle("on", b.dataset.page===page);
-        });
+        document.querySelectorAll(".tab-pill button").forEach(function(b){ b.classList.toggle("on", b.dataset.page===page); });
         var title=document.getElementById("pageTitle");
         var names={home:"Главная",menu:"Меню",gym:"Зал",fin:"Деньги",shop:"Закупки",mail:"Почта"};
         if(title) title.textContent=names[page]||"Дома";
         window.scrollTo(0,0);
       }
       window.go=show;
-      document.querySelectorAll(".page").forEach(function(p){
-        if(!p.classList.contains("on")){
-          p.hidden=true;
-          p.style.setProperty("display","none","important");
-        }
-      });
     })();
   </script>
+  <script src="./auth-gate.js?v=36"></script>
 </body>
 </html>
