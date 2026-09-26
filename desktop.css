@@ -1,0 +1,72 @@
+@media (min-width: 900px) {
+  .app {
+    max-width: 1180px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 28px 40px 64px 156px !important;
+  }
+  .page,
+  #home,
+  #menu,
+  #gym,
+  #fin,
+  #shop {
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .card,
+  .mcf,
+  .block-day,
+  .block-food,
+  .block-mail {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .tabbar {
+    left: 20px !important;
+    right: auto !important;
+    top: 24px !important;
+    bottom: auto !important;
+    width: 120px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+  }
+  .tab-pill {
+    flex-direction: column !important;
+    border-radius: 22px !important;
+    padding: 10px !important;
+    gap: 6px !important;
+  }
+  .tab-pill button {
+    min-height: 56px !important;
+    font-size: 13px !important;
+    padding: 12px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .fab {
+    width: 56px !important;
+    height: 56px !important;
+    margin: 12px auto 0 !important;
+  }
+  #home.page.on {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  #menu.page.on,
+  #fin.page.on {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+  #menu.page.on > .card.span,
+  #fin.page.on > .card.span { grid-column: 1 / -1 !important; }
+  #home .block-mail { max-height: 280px !important; overflow: auto !important; }
+}
+@media (min-width: 1280px) {
+  .app { max-width: 1240px !important; padding-left: 164px !important; }
+}
