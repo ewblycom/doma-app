@@ -8,15 +8,15 @@
   <meta name="theme-color" content="#f5f5f7">
   <title>Дома</title>
   <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" href="./styles.css?v=35">
-  <link rel="stylesheet" href="./menu.css?v=35">
-  <link rel="stylesheet" href="./mcf.css?v=35">
-  <link rel="stylesheet" href="./apple.css?v=35">
-  <link rel="stylesheet" href="./gym.css?v=35">
-  <link rel="stylesheet" href="./home.css?v=35">
-  <link rel="stylesheet" href="./tabs.css?v=35">
-  <link rel="stylesheet" href="./desktop.css?v=35">
-  <link rel="stylesheet" href="./auth.css?v=36">
+  <link rel="stylesheet" href="./styles.css?v=37">
+  <link rel="stylesheet" href="./menu.css?v=37">
+  <link rel="stylesheet" href="./mcf.css?v=37">
+  <link rel="stylesheet" href="./apple.css?v=37">
+  <link rel="stylesheet" href="./gym.css?v=37">
+  <link rel="stylesheet" href="./home.css?v=37">
+  <link rel="stylesheet" href="./tabs.css?v=37">
+  <link rel="stylesheet" href="./desktop.css?v=37">
+  <link rel="stylesheet" href="./auth.css?v=37">
 </head>
 <body>
   <div class="app">
@@ -24,6 +24,11 @@
       <h1 class="page-title" id="pageTitle">Главная</h1>
       <button class="who-pill" id="whoPill" onclick="cycleWho()">Я</button>
     </header>
+    <h1 class="date-title" id="dateTitle" hidden></h1>
+    <div class="row-pills" hidden>
+      <button class="pill" id="modePill"></button>
+      <div class="pill muted" id="clockChip"></div>
+    </div>
     <main>
       <section id="home" class="page on"></section>
       <section id="menu" class="page" hidden></section>
@@ -49,41 +54,24 @@
     </div>
   </div>
   <script>if (navigator.serviceWorker) { navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); }); }</script>
-  <script src="./data.js?v=35"></script>
-  <script src="./mail-cache.js?v=35"></script>
-  <script src="./catalog.js?v=35"></script>
-  <script src="./app.js?v=35"></script>
-  <script src="./finance.js?v=35"></script>
-  <script src="./menu-hero.js?v=35"></script>
-  <script src="./menu.js?v=35"></script>
-  <script src="./recipe.js?v=35"></script>
-  <script src="./mcf-a.js?v=35"></script>
-  <script src="./mcf-b.js?v=35"></script>
-  <script src="./mcf.js?v=35"></script>
-  <script src="./ui.js?v=35"></script>
-  <script src="./gym-hero.js?v=35"></script>
-  <script src="./gym.js?v=35"></script>
-  <script src="./habits.js?v=35"></script>
-  <script src="./home.js?v=35"></script>
-  <script src="./pages.js?v=35"></script>
-  <script>
-    (function(){
-      function show(page){
-        document.querySelectorAll(".page").forEach(function(p){
-          var on=p.id===page;
-          p.classList.toggle("on", on);
-          p.hidden=!on;
-          p.style.setProperty("display", on?((page==="home"||page==="gym")?"flex":"block"):"none", "important");
-        });
-        document.querySelectorAll(".tab-pill button").forEach(function(b){ b.classList.toggle("on", b.dataset.page===page); });
-        var title=document.getElementById("pageTitle");
-        var names={home:"Главная",menu:"Меню",gym:"Зал",fin:"Деньги",shop:"Закупки",mail:"Почта"};
-        if(title) title.textContent=names[page]||"Дома";
-        window.scrollTo(0,0);
-      }
-      window.go=show;
-    })();
-  </script>
-  <script src="./auth-gate.js?v=36"></script>
+  <script src="./data.js?v=37"></script>
+  <script src="./mail-cache.js?v=37"></script>
+  <script src="./catalog.js?v=37"></script>
+  <script src="./app.js?v=37"></script>
+  <script src="./finance.js?v=37"></script>
+  <script src="./menu-hero.js?v=37"></script>
+  <script src="./menu.js?v=37"></script>
+  <script src="./recipe.js?v=37"></script>
+  <script src="./mcf-a.js?v=37"></script>
+  <script src="./mcf-b.js?v=37"></script>
+  <script src="./mcf.js?v=37"></script>
+  <script src="./ui.js?v=37"></script>
+  <script src="./gym-hero.js?v=37"></script>
+  <script src="./gym.js?v=37"></script>
+  <script src="./habits.js?v=37"></script>
+  <script src="./home.js?v=37"></script>
+  <script src="./pages.js?v=37"></script>
+  <script src="./boot-fix.js?v=37"></script>
+  <script src="./auth-gate.js?v=37"></script>
 </body>
 </html>
