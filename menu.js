@@ -61,10 +61,11 @@ function weekLabel(offset){
   const a=weekMonday(offset);
   const b=new Date(a); b.setDate(a.getDate()+6);
   const f=function(d){return d.getDate()+"."+String(d.getMonth()+1).padStart(2,"0")};
-  if(!offset) return "Эта неделя · "+f(a)+“–”+f(b);
-  if(offset===-1) return "Прошлая · "+f(a)+“–”+f(b);
-  if(offset===1) return "Следующая · "+f(a)+“–”+f(b);
-  return (offset>0?"Через "+offset+" нед. · ":"−"+Math.abs(offset)+" нед. · ")+f(a)+“–”+f(b);
+  const span=f(a)+"-"+f(b);
+  if(!offset) return "Эта неделя · "+span;
+  if(offset===-1) return "Прошлая · "+span;
+  if(offset===1) return "Следующая · "+span;
+  return (offset>0?"Через "+offset+" нед. · ":"-"+Math.abs(offset)+" нед. · ")+span;
 }
 window.shiftWeek=function(dir){
   state.weekOff=(state.weekOff||0)+dir;
@@ -79,7 +80,7 @@ function renderMenu(){
   const hero=window.MENU_HERO?'<img class="menu-hero" src="'+window.MENU_HERO+'" alt="">':'';
   const today=todayName();
   const todayI=ORDER.indexOf(today);
-  const nav='<div class="card span week-nav"><div class="title" style="display:flex;align-items:center;justify-content:space-between;gap:12px"><button class="icon-btn" onclick="shiftWeek(-1)">‹</button><span>'+weekLabel(state.weekOff)+'</span><button class="icon-btn" onclick="shiftWeek(1)">›</button></div></div>';
+  const nav='<div class="card span week-nav"><div class="title" style="display:flex;align-items:center;justify-content:space-between;gap:12px"><button class="icon-btn" onclick="shiftWeek(-1)"><</button><span>'+weekLabel(state.weekOff)+'</span><button class="icon-btn" onclick="shiftWeek(1)">></button></div></div>';
   const rings='<div class="card span"><div class="title">Сегодня · '+today+' · '+(state.who==="wife"?"Жена":"Я")+'</div><div class="menu-kbju">'+hero+'<div class="rings rings4">'+
     '<div class="ring-wrap">'+ringSvg(pct(e.k,per.kcal),"#f0b429")+"<b>"+pct(e.k,per.kcal)+'%</b><span>Ккал '+Math.round(e.k)+"/"+per.kcal+"</span></div>"+
     '<div class="ring-wrap">'+ringSvg(pct(e.p,per.p),"#3dcc7a")+"<b>"+pct(e.p,per.p)+'%</b><span>Белок '+Math.round(e.p)+"/"+per.p+"</span></div>"+
@@ -90,7 +91,7 @@ function renderMenu(){
     const list=(DOMA.meals||[]).map(function(m,i){return {m:m,i:i}}).filter(function(x){return x.m.d===d});
     const extra=(state.customMeals||[]).filter(function(m){return m.d===d&&(!m.own||m.own==="shared"||m.own===state.who)});
     const html=list.map(function(x){return mealBlock(x.m,x.i,false)}).join("")+extra.map(function(m){return mealBlock(m,0,true)}).join("");
-    return '<div class="card day-card"><div class="title" style="display:flex;justify-content:space-between">'+d+' <button class="icon-btn" onclick="editCustom(\'\',\''+d+'\')">+</button></div>'+(html||"<p class='hint'>Нет блюд</p>")+"</div>";
+    return '<div class="card day-card"><div class="title" style="display:flex;justify-content:space-between">'+d+' <button class="icon-btn" onclick="editCustom(\x27\x27,\x27'+d+'\x27)">+</button></div>'+(html||"<p class='hint'>Нет блюд</p>")+"</div>";
   }).join("");
   box.innerHTML=nav+rings+days;
 }
