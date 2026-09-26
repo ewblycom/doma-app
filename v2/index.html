@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>Дома</title>
+  <style>
+    :root {
+      --color-primary: #0066cc; --color-primary-focus: #0071e3;
+      --color-ink: #1d1d1f; --color-ink-muted-48: #7a7a7a;
+      --color-hairline: #e0e0e0; --color-divider-soft: #f0f0f0;
+      --color-canvas: #ffffff; --color-canvas-parchment: #f5f5f7; --color-on-primary: #ffffff;
+      --font-text: "SF Pro Text", Inter, system-ui, -apple-system, sans-serif;
+      --font-display: "SF Pro Display", "SF Pro Text", Inter, system-ui, -apple-system, sans-serif;
+      --radius-md: 11px; --radius-lg: 18px; --radius-pill: 9999px;
+      --space-xxs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 17px;
+      --space-lg: 24px; --space-xl: 32px; --touch: 44px; --size-fab: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: var(--font-text); font-size: 17px; font-weight: 400;
+      line-height: 1.47; letter-spacing: -0.374px; color: var(--color-ink);
+      background: var(--color-canvas-parchment); -webkit-font-smoothing: antialiased;
+    }
+    button, input { font: inherit; color: inherit; }
+    .app { max-width: 430px; margin: 0 auto; padding: var(--space-sm) var(--space-md) 120px; }
+    .head { display: flex; align-items: center; gap: var(--space-xs); padding-top: max(var(--space-sm), env(safe-area-inset-top)); }
+    .page-title { margin: 0; flex: 1; font-family: var(--font-display); font-size: 40px; font-weight: 600; line-height: 1.1; }
+    .card { background: var(--color-canvas); border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); padding: var(--space-lg); margin-bottom: var(--space-sm); }
+    .card h2 { margin: 0 0 var(--space-xs); font-size: 17px; font-weight: 600; }
+    .card p { margin: 0; }
+    .muted { color: var(--color-ink-muted-48); }
+    .empty { text-align: center; padding: var(--space-xl) var(--space-sm); }
+    .who-pill { min-width: var(--touch); height: var(--touch); padding: 0 var(--space-sm); border-radius: var(--radius-pill); background: var(--color-canvas); border: 2px solid var(--color-primary-focus); font-size: 14px; font-weight: 600; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--touch); padding: 11px 22px; border-radius: var(--radius-pill); border: 0; cursor: pointer; }
+    .btn:active { transform: scale(0.95); }
+    .btn-primary { background: var(--color-primary); color: var(--color-on-primary); width: 100%; }
+    .btn-text { background: transparent; color: var(--color-primary); padding: var(--space-xs); }
+    .link { color: var(--color-primary); text-decoration: none; }
+    .field { width: 100%; height: var(--touch); border: 1px solid var(--color-hairline); border-radius: var(--radius-md); background: var(--color-canvas); padding: 0 var(--space-md); margin-bottom: var(--space-sm); }
+    .auth { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-xl); }
+    .auth-stack { width: min(400px, 100%); }
+    .auth-stack h1 { margin: 0 0 var(--space-lg); font-family: var(--font-display); font-size: 40px; font-weight: 600; }
+    .choice { display: block; margin: 0 0 var(--space-xs); font-size: 14px; color: var(--color-ink-muted-48); }
+    .hint { margin: var(--space-md) 0 0; text-align: center; font-size: 14px; color: var(--color-ink-muted-48); }
+    .err { background: var(--color-canvas); border: 1px solid var(--color-hairline); border-radius: var(--radius-md); padding: var(--space-sm); margin-bottom: var(--space-sm); font-size: 14px; }
+    .tabbar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; padding: var(--space-xs) var(--space-sm) max(var(--space-sm), env(safe-area-inset-bottom)); }
+    .tab-pill { display: flex; background: var(--color-canvas); border: 1px solid var(--color-hairline); border-radius: var(--radius-pill); padding: var(--space-xxs); }
+    .tab-pill button { min-height: var(--touch); padding: 0 var(--space-sm); border: 0; background: transparent; color: var(--color-ink-muted-48); font-size: 14px; border-radius: var(--radius-pill); }
+    .tab-pill button.on { color: var(--color-ink); font-weight: 600; border-bottom: 2px solid var(--color-primary); border-radius: 0; }
+    .fab { position: fixed; right: var(--space-lg); bottom: calc(var(--touch) + var(--space-sm) + var(--space-sm)); width: var(--size-fab); height: var(--size-fab); border: 0; border-radius: 9999px; background: var(--color-primary); color: var(--color-on-primary); font-size: 40px; line-height: 1; }
+    .fab:active { transform: scale(0.95); }
+    .page { display: none; } .page.on { display: block; }
+    .toolbar { display: flex; justify-content: flex-end; margin: var(--space-xs) 0 var(--space-md); }
+    @media (min-width: 900px) {
+      .app { max-width: 1120px; padding: 32px 48px 80px 120px; }
+      .tabbar { left: 24px; right: auto; top: 24px; bottom: auto; flex-direction: column; align-items: stretch; }
+      .tab-pill { flex-direction: column; border-radius: var(--radius-lg); }
+      .fab { position: static; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+    const supabase = createClient(
+      "https://nvxzplthqeqyihqzgacf.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52eHpwbHRocWVxeWlocXpnYWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNTY1NzQsImV4cCI6MjEwNTczMjU3NH0.FT5ve5zEFbnF_5Ac-aM3Mv_lingo9OgIGM6Y3h9xJfs"
+    );
+    const TITLES = { home: "Главная", menu: "Меню", gym: "Зал", fin: "Деньги", shop: "Закупки" };
+    const STUBS = {
+      home: { title: "Главная", status: "Календарь и напоминания подключатся в следующем эпике", emoji: "📅" },
+      menu: { title: "Меню", status: "Подключится в следующем эпике", emoji: "🍽" },
+      gym: { title: "Зал", status: "Подключится в следующем эпике", emoji: "🏋️" },
+      fin: { title: "Деньги", status: "Подключится в следующем эпике", emoji: "💰" },
+      shop: { title: "Закупки", status: "Подключится в следующем эпике", emoji: "🛒" }
+    };
+    const root = document.getElementById("root");
+    const state = {
+      session: null, profile: null, household: null, members: [],
+      view: "login", page: "home",
+      activeSlot: localStorage.getItem("doma-slot") || "me",
+      error: "", busy: false
+    };
+    const slotLabel = (s) => s === "partner" ? "Жена" : "Я";
+    function go(page) { state.page = page; render(); window.scrollTo(0, 0); }
+    function cycleWho() {
+      const hasP = state.members.some((m) => m.slot === "partner");
+      const hasM = state.members.some((m) => m.slot === "me");
+      if (state.activeSlot === "me" && hasP) state.activeSlot = "partner";
+      else if (hasM) state.activeSlot = "me";
+      localStorage.setItem("doma-slot", state.activeSlot);
+      render();
+    }
+    async function loadHousehold() {
+      const { data: mine, error } = await supabase.from("profiles").select("*").eq("id", state.session.user.id).maybeSingle();
+      if (error) throw error;
+      state.profile = mine;
+      if (!mine) { state.view = "register"; return; }
+      const { data: house } = await supabase.from("households").select("*").eq("id", mine.household_id).single();
+      state.household = house;
+      const { data: members } = await supabase.from("profiles").select("id, slot, display_name").eq("household_id", mine.household_id);
+      state.members = members || [];
+      state.view = "app";
+    }
+    async function onLogin(email, password) {
+      state.busy = true; render();
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      state.busy = false;
+      if (error) { state.error = error.message; render(); return; }
+      state.error = ""; await boot();
+    }
+    async function onRegister({ email, password, mode, invite, houseName }) {
+      state.busy = true; render();
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (error) { state.busy = false; state.error = error.message; render(); return; }
+      if (!data.session) {
+        const again = await supabase.auth.signInWithPassword({ email, password });
+        if (again.error) {
+          state.busy = false;
+          state.error = "Аккаунт создан. Если не пускает — выключите Confirm email в Supabase.";
+          render(); return;
+        }
+      }
+      const rpc = mode === "join"
+        ? await supabase.rpc("join_household", { p_code: invite })
+        : await supabase.rpc("create_household", { p_name: houseName || "Дом" });
+      state.busy = false;
+      if (rpc.error) { state.error = rpc.error.message; render(); return; }
+      state.error = ""; await boot();
+    }
+    async function onLogout() {
+      await supabase.auth.signOut();
+      state.session = null; state.profile = null; state.household = null;
+      state.members = []; state.view = "login"; render();
+    }
+    function authScreen(kind) {
+      const isReg = kind === "register";
+      return `<div class="auth"><form class="auth-stack" id="authForm">
+        <h1>${isReg ? "Регистрация" : "Вход"}</h1>
+        ${state.error ? `<div class="err">${state.error}</div>` : ""}
+        <input class="field" name="email" type="email" required placeholder="Email" autocomplete="email">
+        <input class="field" name="password" type="password" required minlength="6" placeholder="Пароль">
+        ${isReg ? `<label class="choice"><input type="radio" name="mode" value="create" checked> Создать дом</label>
+          <input class="field" name="houseName" placeholder="Название дома" value="Дом">
+          <label class="choice"><input type="radio" name="mode" value="join"> Вступить по коду</label>
+          <input class="field" name="invite" placeholder="Код приглашения">` : ""}
+        <button class="btn btn-primary" ${state.busy ? "disabled" : ""}>${state.busy ? "…" : isReg ? "Создать" : "Войти"}</button>
+        <p class="hint">${isReg ? `Уже есть аккаунт? <a class="link" href="#/login">Войти</a>` : `Нет аккаунта? <a class="link" href="#/register">Регистрация</a>`}</p>
+      </form></div>`;
+    }
+    function stub(key) {
+      const s = STUBS[key];
+      return `<article class="card"><h2>${s.title}</h2><div class="empty"><div>${s.emoji}</div><p>${s.status}</p></div></article>`;
+    }
+    function appScreen() {
+      return `<div class="app"><header class="head">
+        <h1 class="page-title">${TITLES[state.page]}</h1>
+        <button class="who-pill" type="button" id="whoPill">${slotLabel(state.activeSlot)}</button>
+      </header>
+      <div class="toolbar"><button class="btn-text" type="button" id="logoutBtn">Выйти</button></div>
+      <main>
+        <section class="page ${state.page === "home" ? "on" : ""}">${stub("home")}${state.household ? `<article class="card"><h2>Дом</h2><p>${state.household.name}</p><p class="muted">Код для второго человека: <code>${state.household.invite_code}</code></p><p class="muted">В доме: ${state.members.map((m) => slotLabel(m.slot)).join(" · ")}</p></article>` : ""}</section>
+        <section class="page ${state.page === "menu" ? "on" : ""}">${stub("menu")}</section>
+        <section class="page ${state.page === "gym" ? "on" : ""}">${stub("gym")}</section>
+        <section class="page ${state.page === "fin" ? "on" : ""}">${stub("fin")}</section>
+        <section class="page ${state.page === "shop" ? "on" : ""}">${stub("shop")}</section>
+      </main></div>
+      <nav class="tabbar"><div class="tab-pill">
+        <button data-page="home" class="${state.page === "home" ? "on" : ""}">Главная</button>
+        <button data-page="menu" class="${state.page === "menu" ? "on" : ""}">Меню</button>
+        <button data-page="gym" class="${state.page === "gym" ? "on" : ""}">Зал</button>
+        <button data-page="fin" class="${state.page === "fin" ? "on" : ""}">Деньги</button>
+      </div>
+      <button class="fab" data-page="shop">+</button></nav>`;
+    }
+    function render() {
+      root.innerHTML = state.view === "app" ? appScreen() : authScreen(state.view);
+      document.getElementById("authForm")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        if (state.view === "login") onLogin(String(fd.get("email")), String(fd.get("password")));
+        else onRegister({
+          email: String(fd.get("email")), password: String(fd.get("password")),
+          mode: String(fd.get("mode") || "create"), invite: String(fd.get("invite") || ""),
+          houseName: String(fd.get("houseName") || "Дом")
+        });
+      });
+      document.getElementById("whoPill")?.addEventListener("click", cycleWho);
+      document.getElementById("logoutBtn")?.addEventListener("click", onLogout);
+      document.querySelectorAll("[data-page]").forEach((b) => b.addEventListener("click", () => go(b.dataset.page)));
+    }
+    window.addEventListener("hashchange", () => {
+      if (!state.session) {
+        state.view = location.hash === "#/register" ? "register" : "login";
+        render();
+      }
+    });
+    async function boot() {
+      const { data } = await supabase.auth.getSession();
+      state.session = data.session;
+      if (state.session) {
+        try { await loadHousehold(); } catch (e) { state.error = e.message; state.view = "register"; }
+      } else {
+        state.view = location.hash === "#/register" ? "register" : "login";
+      }
+      render();
+    }
+    boot();
+  </script>
+</body>
+</html>
