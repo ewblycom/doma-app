@@ -2,124 +2,100 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Дома</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дома — вход</title>
 <style>
-:root{--p:#0066cc;--ink:#1d1d1f;--muted:#7a7a7a;--line:#e0e0e0;--bg:#f5f5f7;--card:#fff}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.47;color:var(--ink);background:var(--bg)}
-button,input{font:inherit;color:inherit}
-.app{max-width:430px;margin:0 auto;padding:12px 17px 120px}
-.head{display:flex;align-items:center;gap:8px;padding-top:12px}
-.page-title{margin:0;flex:1;font-size:40px;font-weight:600}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:12px}
-.card h2{margin:0 0 8px;font-size:17px}.card p{margin:0}.muted{color:var(--muted)}
-.empty{text-align:center;padding:32px 12px}
-.who-pill{min-width:44px;height:44px;padding:0 12px;border-radius:9999px;background:#fff;border:2px solid #0071e3;font-size:14px;font-weight:600}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 22px;border-radius:9999px;border:0}
-.btn-primary{background:var(--p);color:#fff;width:100%}
-.btn-text{background:transparent;color:var(--p);padding:8px}
-.field{width:100%;height:44px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:0 17px;margin-bottom:12px}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,sans-serif;background:#f5f5f7;color:#1d1d1f}
 .auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
-.auth-stack{width:min(400px,100%)}
-.auth-stack h1{margin:0 0 24px;font-size:40px;font-weight:600}
-.choice{display:block;margin:0 0 8px;font-size:14px;color:var(--muted)}
-.hint{margin:17px 0 0;text-align:center;font-size:14px;color:var(--muted)}
-.err{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;margin-bottom:12px;font-size:14px}
-.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:9999px;padding:4px;margin-bottom:24px}
-.seg button{flex:1;min-height:44px;border:0;background:transparent;color:var(--muted);border-radius:9999px}
-.seg button.on{background:var(--p);color:#fff;font-weight:600}
-.tabbar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:8px 12px 16px}
-.tab-pill{display:flex;background:#fff;border:1px solid var(--line);border-radius:9999px;padding:4px}
-.tab-pill button{min-height:44px;padding:0 12px;border:0;background:transparent;color:var(--muted);font-size:14px}
-.tab-pill button.on{color:var(--ink);font-weight:600;border-bottom:2px solid var(--p)}
-.fab{position:fixed;right:24px;bottom:68px;width:56px;height:56px;border:0;border-radius:9999px;background:var(--p);color:#fff;font-size:40px;line-height:1}
-.page{display:none}.page.on{display:block}
-.toolbar{display:flex;justify-content:flex-end;margin:8px 0 17px}
-@media(min-width:900px){.app{max-width:1120px;padding:32px 48px 80px 120px}.tabbar{left:24px;right:auto;top:24px;bottom:auto;flex-direction:column}.tab-pill{flex-direction:column;border-radius:18px}.fab{position:static;margin-top:12px}}
+.box{width:min(400px,100%)}
+h1{margin:0 0 24px;font-size:40px;font-weight:600}
+.seg{display:flex;background:#fff;border:1px solid #e0e0e0;border-radius:9999px;padding:4px;margin-bottom:24px}
+.seg button{flex:1;min-height:44px;border:0;background:transparent;color:#7a7a7a;border-radius:9999px}
+.seg button.on{background:#0066cc;color:#fff;font-weight:600}
+.field{width:100%;height:44px;border:1px solid #e0e0e0;border-radius:11px;background:#fff;padding:0 17px;margin:0 0 12px;font:inherit}
+.btn{width:100%;min-height:44px;border:0;border-radius:9999px;background:#0066cc;color:#fff;font:inherit}
+.btn-text{background:transparent;color:#0066cc;border:0;font:inherit;padding:8px}
+.err,.hint{font-size:14px;margin:0 0 12px}
+.err{background:#fff;border:1px solid #e0e0e0;border-radius:11px;padding:12px}
+.hint{color:#7a7a7a;text-align:center}
+.choice{display:block;margin:0 0 8px;font-size:14px;color:#7a7a7a}
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-const supabase = createClient(
+const sb = createClient(
   "https://nvxzplthqeqyihqzgacf.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52eHpwbHRocWVxeWlocXpnYWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxNTY1NzQsImV4cCI6MjEwNTczMjU3NH0.FT5ve5zEFbnF_5Ac-aM3Mv_lingo9OgIGM6Y3h9xJfs"
 );
-const TITLES={home:"Главная",menu:"Меню",gym:"Зал",fin:"Деньги",shop:"Закупки"};
-const STUBS={home:["📅","Календарь дальше"],menu:["🍽","Меню дальше"],gym:["🏋️","Зал дальше"],fin:["💰","Деньги дальше"],shop:["🛒","Закупки дальше"]};
-const root=document.getElementById("root");
-const state={session:null,profile:null,household:null,members:[],screen:"login",page:"home",activeSlot:localStorage.getItem("doma-slot")||"me",error:"",busy:false};
-const label=s=>s==="partner"?"Жена":"Я";
-const nice=m=>{const t=String(m||"");
-if(/already registered|already been registered/i.test(t))return"Этот email уже есть. Откройте Вход.";
-if(/invalid login/i.test(t))return"Неверный email или пароль.";
-if(/already in a household/i.test(t))return"Вы уже в доме.";
-if(/gen_random_bytes/i.test(t))return"В базе ещё старая функция дома. Нужен SQL без gen_random_bytes.";
-if(/not authenticated/i.test(t))return"Войдите снова.";
-if(/invalid invite/i.test(t))return"Неверный код.";
-if(/household is full/i.test(t))return"В доме уже двое.";
-return t;};
-async function refresh(){const {data}=await supabase.auth.getSession();state.session=data.session;return state.session;}
-async function loadHouse(){
-  if(!state.session){state.screen="login";return;}
-  const {data:mine,error}=await supabase.from("profiles").select("*").eq("id",state.session.user.id).maybeSingle();
-  if(error)throw error;
-  state.profile=mine;
-  if(!mine){state.screen="house";return;}
-  const {data:house}=await supabase.from("households").select("*").eq("id",mine.household_id).single();
-  state.household=house;
-  const {data:members}=await supabase.from("profiles").select("id, slot, display_name").eq("household_id",mine.household_id);
-  state.members=members||[];
-  state.screen="app";
+const DASH = "../?v=34";
+const root = document.getElementById("root");
+const S = { screen:"login", error:"", busy:false, session:null };
+const nice = m => {
+  const t = String(m||"");
+  if (/already registered/i.test(t)) return "Этот email уже есть. Откройте Вход.";
+  if (/invalid login/i.test(t)) return "Неверный email или пароль.";
+  if (/gen_random_bytes/i.test(t)) return "Нужен SQL без gen_random_bytes — напишите в чат.";
+  if (/invalid invite/i.test(t)) return "Неверный код.";
+  if (/household is full/i.test(t)) return "В доме уже двое.";
+  return t;
+};
+function goDash(){ location.replace(DASH); }
+async function hasHouse(){
+  if (!S.session) return false;
+  const { data } = await sb.from("profiles").select("id").eq("id", S.session.user.id).maybeSingle();
+  return !!data;
 }
-async function doLogin(email,password){
-  state.busy=true;state.error="";render();
-  const {error}=await supabase.auth.signInWithPassword({email,password});
-  state.busy=false;
-  if(error){state.error=nice(error.message);render();return;}
-  await refresh();
-  try{await loadHouse();}catch(e){state.error=nice(e.message);state.screen="house";}
-  render();
-}
-async function doRegister(email,password){
-  state.busy=true;state.error="";render();
-  const {data,error}=await supabase.auth.signUp({email,password});
-  if(error&&/already registered/i.test(error.message)){state.busy=false;return doLogin(email,password);}
-  if(error){state.busy=false;state.error=nice(error.message);render();return;}
-  if(!data.session){
-    const again=await supabase.auth.signInWithPassword({email,password});
-    if(again.error){state.busy=false;state.error="Аккаунт создан. Выключите Confirm email в Authentication.";render();return;}
-  }
-  state.busy=false;await refresh();state.screen="house";render();
-}
-async function attachHouse(mode,invite,houseName){
-  if(!state.session){state.screen="login";state.error="Сначала войдите.";render();return;}
-  state.busy=true;state.error="";render();
-  const rpc=mode==="join"?await supabase.rpc("join_household",{p_code:String(invite||"").trim()}):await supabase.rpc("create_household",{p_name:houseName||"Дом"});
-  state.busy=false;
-  if(rpc.error){state.error=nice(rpc.error.message);render();return;}
-  try{await loadHouse();}catch(e){state.error=nice(e.message);}render();
-}
-async function logout(){await supabase.auth.signOut();state.session=null;state.profile=null;state.household=null;state.members=[];state.screen="login";state.error="";render();}
-function shell(inner){return `<div class="auth"><div class="auth-stack"><h1>Дома</h1><div class="seg"><button type="button" data-screen="login" class="${state.screen==="login"?"on":""}">Вход</button><button type="button" data-screen="register" class="${state.screen==="register"?"on":""}">Регистрация</button></div>${state.error?`<div class="err">${state.error}</div>`:""}${inner}</div></div>`;}
-function loginView(){return shell(`<form id="authForm"><input class="field" name="email" type="email" required placeholder="Email"><input class="field" name="password" type="password" required minlength="6" placeholder="Пароль"><button class="btn btn-primary" ${state.busy?"disabled":""}>${state.busy?"…":"Войти"}</button></form>`);}
-function registerView(){return shell(`<form id="authForm"><input class="field" name="email" type="email" required placeholder="Email"><input class="field" name="password" type="password" required minlength="6" placeholder="Пароль, от 6 символов"><button class="btn btn-primary" ${state.busy?"disabled":""}>${state.busy?"…":"Создать аккаунт"}</button></form>`);}
-function houseView(){return `<div class="auth"><form class="auth-stack" id="houseForm"><h1>Ваш дом</h1><p class="hint" style="text-align:left;margin:0 0 16px">Аккаунт есть. Создайте дом или вступите по коду.</p>${state.error?`<div class="err">${state.error}</div>`:""}<label class="choice"><input type="radio" name="mode" value="create" checked> Создать дом</label><input class="field" name="houseName" value="Дом"><label class="choice"><input type="radio" name="mode" value="join"> Вступить по коду</label><input class="field" name="invite" placeholder="Код"><button class="btn btn-primary" ${state.busy?"disabled":""}>${state.busy?"…":"Продолжить"}</button><p class="hint"><button class="btn-text" type="button" id="logoutBtn">Выйти</button></p></form></div>`;}
-function stub(k){const [e,t]=STUBS[k];return `<article class="card"><h2>${TITLES[k]}</h2><div class="empty"><div>${e}</div><p>${t}</p></div></article>`;}
-function appView(){return `<div class="app"><header class="head"><h1 class="page-title">${TITLES[state.page]}</h1><button class="who-pill" type="button" id="whoPill">${label(state.activeSlot)}</button></header><div class="toolbar"><button class="btn-text" type="button" id="logoutBtn">Выйти</button></div><main><section class="page ${state.page==="home"?"on":""}">${stub("home")}${state.household?`<article class="card"><h2>Дом</h2><p>${state.household.name}</p><p class="muted">Код: <code>${state.household.invite_code}</code></p><p class="muted">${state.members.map(m=>label(m.slot)).join(" · ")}</p></article>`:""}</section><section class="page ${state.page==="menu"?"on":""}">${stub("menu")}</section><section class="page ${state.page==="gym"?"on":""}">${stub("gym")}</section><section class="page ${state.page==="fin"?"on":""}">${stub("fin")}</section><section class="page ${state.page==="shop"?"on":""}">${stub("shop")}</section></main></div><nav class="tabbar"><div class="tab-pill"><button data-page="home" class="${state.page==="home"?"on":""}">Главная</button><button data-page="menu" class="${state.page==="menu"?"on":""}">Меню</button><button data-page="gym" class="${state.page==="gym"?"on":""}">Зал</button><button data-page="fin" class="${state.page==="fin"?"on":""}">Деньги</button></div><button class="fab" data-page="shop">+</button></nav>`;}
 function render(){
-  root.innerHTML=state.screen==="app"?appView():state.screen==="house"?houseView():state.screen==="register"?registerView():loginView();
-  document.querySelectorAll("[data-screen]").forEach(b=>b.addEventListener("click",()=>{state.screen=b.dataset.screen;state.error="";render();}));
-  document.getElementById("authForm")?.addEventListener("submit",e=>{e.preventDefault();const fd=new FormData(e.target);const email=String(fd.get("email")||"").trim();const password=String(fd.get("password")||"");state.screen==="register"?doRegister(email,password):doLogin(email,password);});
-  document.getElementById("houseForm")?.addEventListener("submit",e=>{e.preventDefault();const fd=new FormData(e.target);attachHouse(String(fd.get("mode")||"create"),fd.get("invite"),fd.get("houseName"));});
-  document.getElementById("whoPill")?.addEventListener("click",()=>{const hasP=state.members.some(m=>m.slot==="partner");const hasM=state.members.some(m=>m.slot==="me");if(state.activeSlot==="me"&&hasP)state.activeSlot="partner";else if(hasM)state.activeSlot="me";localStorage.setItem("doma-slot",state.activeSlot);render();});
-  document.getElementById("logoutBtn")?.addEventListener("click",logout);
-  document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>{state.page=b.dataset.page;render();}));
+  const tabs = `<div class="seg"><button type="button" data-s="login" class="${S.screen==="login"?"on":""}">Вход</button><button type="button" data-s="register" class="${S.screen==="register"?"on":""}">Регистрация</button></div>`;
+  const err = S.error ? `<div class="err">${S.error}</div>` : "";
+  if (S.screen === "house") {
+    root.innerHTML = `<div class="auth"><form class="box" id="houseForm"><h1>Ваш дом</h1>${err}<label class="choice"><input type="radio" name="mode" value="create" checked> Создать дом</label><input class="field" name="houseName" value="Дом"><label class="choice"><input type="radio" name="mode" value="join"> Вступить по коду</label><input class="field" name="invite" placeholder="Код"><button class="btn">${S.busy?"…":"Продолжить"}</button><p class="hint"><button class="btn-text" type="button" id="out">Выйти</button></p></form></div>`;
+  } else {
+    root.innerHTML = `<div class="auth"><div class="box"><h1>Дома</h1>${tabs}${err}<form id="authForm"><input class="field" name="email" type="email" required placeholder="Email"><input class="field" name="password" type="password" required minlength="6" placeholder="Пароль"><button class="btn">${S.busy?"…":(S.screen==="register"?"Создать аккаунт":"Войти и открыть сайт")}</button></form><p class="hint">После входа откроется полный дашборд: главная, меню, зал, деньги, почта.</p></div></div>`;
+  }
+  document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{S.screen=b.dataset.s;S.error="";render();});
+  document.getElementById("out")?.addEventListener("click", async()=>{await sb.auth.signOut();S.session=null;S.screen="login";render();});
+  document.getElementById("authForm")?.addEventListener("submit", async e=>{
+    e.preventDefault(); const fd=new FormData(e.target);
+    const email=String(fd.get("email")||"").trim(); const password=String(fd.get("password")||"");
+    S.busy=true;S.error="";render();
+    let error;
+    if (S.screen==="register") {
+      const up = await sb.auth.signUp({email,password});
+      error = up.error;
+      if (error && /already registered/i.test(error.message)) {
+        const inn = await sb.auth.signInWithPassword({email,password}); error = inn.error;
+      } else if (!up.data?.session && !error) {
+        const inn = await sb.auth.signInWithPassword({email,password}); error = inn.error;
+      }
+    } else {
+      const inn = await sb.auth.signInWithPassword({email,password}); error = inn.error;
+    }
+    S.busy=false;
+    if (error){S.error=nice(error.message);render();return;}
+    S.session=(await sb.auth.getSession()).data.session;
+    if (await hasHouse()) goDash(); else { S.screen="house"; render(); }
+  });
+  document.getElementById("houseForm")?.addEventListener("submit", async e=>{
+    e.preventDefault(); const fd=new FormData(e.target);
+    S.busy=true;S.error="";render();
+    const mode=String(fd.get("mode")||"create");
+    const rpc = mode==="join"
+      ? await sb.rpc("join_household",{p_code:String(fd.get("invite")||"").trim()})
+      : await sb.rpc("create_household",{p_name:String(fd.get("houseName")||"Дом")});
+    S.busy=false;
+    if (rpc.error){S.error=nice(rpc.error.message);render();return;}
+    goDash();
+  });
 }
-async function boot(){await refresh();if(state.session){try{await loadHouse();}catch(e){state.error=nice(e.message);state.screen="house";}}else state.screen="login";render();}
-boot();
+(async()=>{
+  S.session=(await sb.auth.getSession()).data.session;
+  if (S.session && await hasHouse()) goDash();
+  else if (S.session) S.screen="house";
+  render();
+})();
 </script>
 </body>
 </html>
