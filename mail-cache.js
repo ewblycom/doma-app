@@ -1,15 +1,15 @@
 window.MAIL_CACHE={
-  updated:"2026-10-02T12:13:00+02:00",
+  updated:"2026-10-03T12:12:00+02:00",
   mail:[
-    {id:"1a0fc053d4e1bf29",subject:"ФНС: налоговое уведомление в личном кабинете",from:"ФНС России",date:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fc053d4e1bf29"},
-    {id:"1a0fb2aa1bfd7c30",subject:"PPL: BM MOTO сегодня 12:00–14:00, PIN 024847",from:"PPL",date:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fb2aa1bfd7c30"},
-    {id:"1a0f98cc8812064a",subject:"Apple: создан пароль приложения",from:"Apple",date:"2026-10-01",link:"https://mail.google.com/mail/u/0/#inbox/1a0f98cc8812064a"},
-    {id:"1a0f71a759fe7ec4",subject:"PPL: принята посылка BM MOTO 45082118052",from:"PPL",date:"2026-10-01",link:"https://mail.google.com/mail/u/0/#inbox/1a0f71a759fe7ec4"},
-    {id:"1a0f66652128bc39",subject:"Automatic Choice: заказ получен (Gears)",from:"Automatic Choice",date:"2026-10-01",link:"https://mail.google.com/mail/u/0/#inbox/1a0f66652128bc39"}
+    {id:"1a1002517f3d0e35",subject:"Cara Plasma: сегодня в 09:00, Praha 1",from:"Cara Plasma",date:"2026-10-03",link:"https://mail.google.com/mail/u/0/#inbox/1a1002517f3d0e35"},
+    {id:"1a0ffe1cd9cf5514",subject:"PayPal: изменения условий",from:"PayPal",date:"2026-10-03",link:"https://mail.google.com/mail/u/0/#inbox/1a0ffe1cd9cf5514"},
+    {id:"1a0fc8619ff8f1f7",subject:"Dobro clinic: запись 10.10 в 08:30",from:"Dobro clinic",date:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fc8619ff8f1f7"},
+    {id:"1a0fc580328af5d0",subject:"PPL: оплата 652 Kč, посылка 45082118052",from:"PPL",date:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fc580328af5d0"},
+    {id:"1a0fc053d4e1bf29",subject:"ФНС: налоговое уведомление в личном кабинете",from:"ФНС России",date:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fc053d4e1bf29"}
   ],
   parcels:[
-    {id:"ppl-45082118052",kind:"посылка",title:"PPL · BM MOTO · Poklice 17\" TOP",code:"024847",address:"Modřanská 394/102, 14700 Praha 4",until:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fb2aa1bfd7c30",how:"Сегодня 02.10 курьер 12:00–14:00. PIN 024847, номер 45082118052, заказ 2026017925, наложка 652 Kč, ~3 кг. Если не дома — нажать ссылку в письме, уедет на пункт PPL.",picked:false},
-    {id:"alza-1060500541",kind:"посылка",title:"Alza · ловушки / AlzaBox",code:"257103",address:"AlzaBox, Vlnitá 638/8, 14700 Praha 4",until:"2026-10-01",link:"https://mail.google.com/mail/u/0/#inbox/1a0ed9076c5ee6f6",how:"AlzaBox Braník Vlnitá. Код 257 103, к оплате 298 Kč. Срок до чт 1.10 23:59 истёк. Если забрали — отметьте.",picked:false},
+    {id:"ppl-45082118052",kind:"посылка",title:"PPL · BM MOTO · Poklice 17\" TOP",code:"024847",address:"Modřanská 394/102, 14700 Praha 4",until:"2026-10-02",link:"https://mail.google.com/mail/u/0/#inbox/1a0fc580328af5d0",how:"02.10 курьер 12:00–14:00. PIN 024847, номер 45082118052, заказ 2026017925, наложка 652 Kč. PPL подтвердил оплату 652 Kč в 13:20 — считаем полученной.",picked:true},
+    {id:"alza-1060500541",kind:"посылка",title:"Alza · ловушки / AlzaBox",code:"257103",address:"AlzaBox, Vlnitá 638/8, 14700 Praha 4",until:"2026-10-01",link:"https://mail.google.com/mail/u/0/#inbox/1a0ed9076c5ee6f6",how:"AlzaBox Braník Vlnitá. Код 257 103, к оплате 298 Kč. Срок до чт 1.10 23:59 истёк. Письма о выдаче нет. Если забрали — отметьте.",picked:false},
     {id:"ppl-40394994454",kind:"посылка",title:"PPL · AtFlex Autoservis",code:"447512",address:"Modřanská 394/102, 14700 Praha",until:"2026-09-30",link:"https://mail.google.com/mail/u/0/#inbox/1a0f26937972939f",how:"30.09 курьер 14:00–16:00. PIN 447512, номер 40394994454. PPL подтвердил оплату наложенного 1742 Kč в 15:02 — считаем полученной.",picked:true},
     {id:"alza-1060366968",kind:"посылка",title:"Alza · Garnier Mineral · AlzaBox",code:"511889",address:"AlzaBox, Vlnitá 638/8, 14700 Praha 4",until:"2026-09-30",link:"https://mail.google.com/mail/u/0/#inbox/1a0e85f15f4f67fb",how:"Было в AlzaBox Braník Vlnitá. Код 511 889, 89 Kč. Срок до ср 30.09 23:59 истёк. Если забрали — отметьте.",picked:false},
     {id:"5post-275035137",kind:"посылка",title:"5POST · Золотое Яблоко",code:"913423120",address:"Пятёрочка, Доблести ул, 9с1, Санкт-Петербург",until:"2026-09-20",link:"https://mail.google.com/mail/u/0/#inbox/1a09b8aeb148366b",how:"Код 913423120 или QR на кассе 5POST (08:00–23:00). Срок хранения истёк 20.09. Если уже забрали, отметьте галочкой.",picked:false},
